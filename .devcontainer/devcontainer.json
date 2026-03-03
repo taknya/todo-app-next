@@ -1,0 +1,28 @@
+{
+	"name": "todo-next",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
+	},
+	"features": {
+		// 開発に便利な共通ユーティリティ（Zshなど）を有効化
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			},
+			"extensions": [
+				// どんなプロジェクトでも役立つ汎用的な拡張機能を指定
+				"editorconfig.editorconfig"
+			]
+		}
+	},
+	// Dockerfileで指定したユーザーと合わせる
+	"remoteUser": "vscode",
+	"postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash"
+}

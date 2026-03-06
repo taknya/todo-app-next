@@ -1,0 +1,14 @@
+{
+	"permissions": {
+		"defaultMode": "bypassPermissions",
+		"deny": [
+			"Read(./.env)",
+			"Read(./.env.*)",
+			"Read(./secrets/**)",
+			"Write(./production.config.*)",
+			"Bash(git reset --hard *)",
+			"Bash(git clean -f *)",
+			"Bash(rm -rf *)"
+		]
+	}
+}
